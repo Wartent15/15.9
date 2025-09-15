@@ -16,14 +16,12 @@ public class Instructor
     [MaxLength(100)]
     public string Patronymic { get; set; }
 
-    // Email и телефон
     [EmailAddress]
     public string Email { get; set; }
 
     [Phone]
     public string Phone { get; set; }
 
-    // Связь с курсом: внешний ключ к курсу
     public int? CourseID { get; set; }
     public Course Course { get; set; }
 }
