@@ -21,6 +21,5 @@ public class Student
 
     public DateTime EnrollmentDate { get; set; }
 
-    // Навигация к записям об участии/отзывах как опционально
     public ICollection<Review> Reviews { get; set; }
 }
