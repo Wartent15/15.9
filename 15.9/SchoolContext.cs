@@ -3,7 +3,6 @@ namespace OnlineCourses.CodeFirst.Data
 {
     public class AppDbContext : DbContext
     {
-        // Конструктор для DI (если будете использовать)
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Course> Courses { get; set; }
@@ -13,10 +12,8 @@ namespace OnlineCourses.CodeFirst.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Опционально: конфигурации по умолчанию, ограничения, индексы и т.д.
             base.OnModelCreating(modelBuilder);
 
-            // Пример: при удалении курса оставить преподавателя без привязки
             modelBuilder.Entity<Instructor>()
                 .HasOne(i => i.Course)
                 .WithMany(c => c.Instructors)
